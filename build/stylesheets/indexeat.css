@@ -1,0 +1,549 @@
+@import url("https://fonts.googleapis.com/css?family=Luckiest+Guy");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: radial-gradient(#555, #333) no-repeat fixed #333;
+  height: 100%;
+}
+
+#container {
+  position: absolute;
+  width: 280px;
+  height: 600px;
+  left: 50%;
+  top: 39%;
+  margin-left: -140px;
+  margin-top: -300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.cake {
+  width: 275px;
+  height: auto;
+  display: flex;
+  flex-direction: column-reverse;
+  z-index: 5;
+}
+
+.cake-layer {
+  background-color: #FC9AA7;
+  width: 275px;
+  height: 50px;
+  transition: 0.1s;
+  animation: cakeAppear 0.5s;
+  border: 0;
+}
+
+.cake-layer:focus {
+  outline: 0;
+}
+
+.cake-layer::-moz-focus-inner {
+  border: 0;
+}
+
+@keyframes cakeAppear {
+  0% {
+    height: 50px;
+  }
+  10% {
+    height: 45.4545454545px;
+  }
+  100% {
+    height: 50px;
+  }
+}
+.frosting-row {
+  display: flex;
+  flex-direction: row;
+  height: 0;
+  position: relative;
+  top: -30px;
+  z-index: 1;
+  transition: 0.1s;
+}
+
+/* For bottom frosting, absolute positioning is used instead of relative so it doesn't move with the cake layer for the click animation */
+.bottom-frosting {
+  position: absolute;
+  top: 577px;
+}
+
+.frosting-part {
+  background-color: white;
+  border-radius: 50%;
+  height: 10px;
+  width: 100%;
+}
+
+.frosting-part-small {
+  background-color: white;
+  border-radius: 50%;
+  height: 5px;
+  margin-top: 2.5px;
+  width: 50%;
+}
+
+.cake-controls {
+  position: absolute;
+  top: 660px;
+  width: 275px;
+  color: #DDD;
+}
+.cake-controls button {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #EEE;
+  border: #BBB 3px solid;
+  color: #444;
+  font-size: 24px;
+  margin: 10px;
+  transition: 0.1s;
+}
+.cake-controls button:hover {
+  background-color: #FFD;
+  border-color: #DDB;
+}
+.cake-controls button:active {
+  background-color: #CCC;
+  border-color: #999;
+}
+.cake-controls button:focus {
+  outline: 0;
+  border-color: #FFBB00;
+}
+.cake-controls button::-moz-focus-inner {
+  border: 0;
+}
+.cake-controls .direction-controls {
+  position: absolute;
+  left: 30px;
+}
+.cake-controls .btn-up {
+  left: 0;
+  top: -40px;
+}
+.cake-controls .btn-down {
+  left: 0;
+  top: 40px;
+}
+.cake-controls .btn-wide {
+  left: 40px;
+  top: 0;
+}
+.cake-controls .btn-narrow {
+  left: -40px;
+  top: 0;
+}
+.cake-controls .btn-remove {
+  left: 220px;
+  top: 20px;
+}
+.cake-controls .btn-add {
+  left: 180px;
+  top: -20px;
+}
+.cake-controls .btn-eat {
+  font-family: "Luckiest Guy", cursive;
+  font-size: 28px;
+  left: 135px;
+  top: 45px;
+  width: 60px;
+  height: 60px;
+  background-color: #F11;
+  border-color: #800;
+  color: white;
+}
+.cake-controls .btn-eat:hover {
+  background-color: #F33;
+  border-color: #911;
+}
+.cake-controls .btn-eat:active {
+  background-color: #800;
+}
+.cake-controls .help-candle {
+  position: absolute;
+  left: 245px;
+  top: -20px;
+}
+.cake-controls .help-candle-base {
+  background-color: #DDD;
+  width: 6px;
+  height: 20px;
+  margin-left: 3px;
+}
+.cake-controls button.no-build, .cake-controls .no-build .help-candle-base, .cake-controls button.no-build:hover, .cake-controls button.no-build:active, .cake-controls button.no-build:focus {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 0;
+  color: #444;
+}
+.cake-controls .help-candle.no-build {
+  background-color: clear;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.plate {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  height: 16px;
+  z-index: 20;
+}
+
+.plate-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.plate-top {
+  width: 140px;
+  height: 8px;
+  background-color: #F5F6F1;
+  flex: 2;
+}
+
+.plate-base {
+  width: 75%;
+  height: 50%;
+  background-color: #F5F6F1;
+}
+
+.plate-left {
+  width: 16px;
+  height: 8px;
+  border-top: 4px solid #F5F6F1;
+  border-right: 8px solid #F5F6F1;
+  border-bottom: 4px solid rgba(0, 0, 0, 0);
+  border-left: 8px solid rgba(0, 0, 0, 0);
+  flex: 0;
+}
+
+.plate-right {
+  width: 16px;
+  height: 8px;
+  border-top: 4px solid #F5F6F1;
+  border-right: 8px solid rgba(0, 0, 0, 0);
+  border-bottom: 4px solid rgba(0, 0, 0, 0);
+  border-left: 8px solid #F5F6F1;
+  flex: 0;
+}
+
+/* Candle properties */
+.candle-row {
+  display: flex;
+  flex-direction: row;
+  height: 66px;
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
+
+.candle {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
+  align-items: center;
+  animation: candleRise 0.4s ease;
+  width: 6px;
+  height: 66px;
+}
+.candle .candle-stick {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 6px;
+  height: 40px;
+  background-color: white;
+  border: 0;
+}
+.candle .candle-stick:focus {
+  outline: 0;
+}
+.candle .candle-stick::-moz-focus-inner {
+  border: 0;
+}
+.candle .wick {
+  background-color: #222;
+  width: 2px;
+  height: 6px;
+}
+.candle .fire {
+  background-color: yellow;
+  border-radius: 50%;
+  padding: 5px;
+  position: relative;
+  left: -1px;
+  animation: burn 0.4s infinite;
+  font-size: 16px;
+}
+.candle .fa-burn {
+  color: #F80;
+  position: absolute;
+  top: -50%;
+  left: 0;
+}
+
+@keyframes burn {
+  0% {
+    transform: scale(1);
+  }
+  33% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes candleRise {
+  from {
+    transform: translateY(40px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+.candle-section, .candle-section-2 {
+  width: 6px;
+  height: 10px;
+  border-top: 5px solid;
+  border-right: 3px solid;
+  border-bottom: 5px solid;
+  border-left: 3px solid;
+}
+
+/* Candle Colors */
+/* Section-2 versions have reversed colors from Section*/
+.candle-pink .candle-section {
+  border-top-color: #FFAFD8;
+  border-right-color: #DA4596;
+  border-bottom-color: #DA4596;
+  border-left-color: #FFAFD8;
+}
+.candle-pink .candle-section-2 {
+  border-top-color: #DA4596;
+  border-right-color: #FFAFD8;
+  border-bottom-color: #FFAFD8;
+  border-left-color: #DA4596;
+}
+
+.candle-pink:hover .candle-section, .candle-pink:focus .candle-section {
+  border-top-color: #ffd1e8;
+  border-right-color: #ea62c2;
+  border-bottom-color: #ea62c2;
+  border-left-color: #ffd1e8;
+}
+.candle-pink:hover .candle-section-2, .candle-pink:focus .candle-section-2 {
+  border-top-color: #ea62c2;
+  border-right-color: #ffd1e8;
+  border-bottom-color: #ffd1e8;
+  border-left-color: #ea62c2;
+}
+
+.candle-blue .candle-section {
+  border-top-color: #B4CBEA;
+  border-right-color: #0810d0;
+  border-bottom-color: #0810d0;
+  border-left-color: #B4CBEA;
+}
+.candle-blue .candle-section-2 {
+  border-top-color: #0810d0;
+  border-right-color: #B4CBEA;
+  border-bottom-color: #B4CBEA;
+  border-left-color: #0810d0;
+}
+
+.candle-blue:hover .candle-section, .candle-blue:focus .candle-section {
+  border-top-color: #d3e1f3;
+  border-right-color: #0c16e4;
+  border-bottom-color: #0c16e4;
+  border-left-color: #d3e1f3;
+}
+.candle-blue:hover .candle-section-2, .candle-blue:focus .candle-section-2 {
+  border-top-color: #0c16e4;
+  border-right-color: #d3e1f3;
+  border-bottom-color: #d3e1f3;
+  border-left-color: #0c16e4;
+}
+
+.candle-green .candle-section {
+  border-top-color: #9ECD9A;
+  border-right-color: green;
+  border-bottom-color: green;
+  border-left-color: #9ECD9A;
+}
+.candle-green .candle-section-2 {
+  border-top-color: green;
+  border-right-color: #9ECD9A;
+  border-bottom-color: #9ECD9A;
+  border-left-color: green;
+}
+
+.candle-green:hover .candle-section, .candle-green:focus .candle-section {
+  border-top-color: #c7e2c4;
+  border-right-color: #00b500;
+  border-bottom-color: #00b500;
+  border-left-color: #c7e2c4;
+}
+.candle-green:hover .candle-section-2, .candle-green:focus .candle-section-2 {
+  border-top-color: #00b500;
+  border-right-color: #c7e2c4;
+  border-bottom-color: #c7e2c4;
+  border-left-color: #00b500;
+}
+
+.candle-purple .candle-section {
+  border-top-color: #D4AEFC;
+  border-right-color: #9240CB;
+  border-bottom-color: #9240CB;
+  border-left-color: #D4AEFC;
+}
+.candle-purple .candle-section-2 {
+  border-top-color: #9240CB;
+  border-right-color: #D4AEFC;
+  border-bottom-color: #D4AEFC;
+  border-left-color: #9240CB;
+}
+
+.candle-purple:hover .candle-section, .candle-purple:focus .candle-section {
+  border-top-color: #e6d0fd;
+  border-right-color: #c05be1;
+  border-bottom-color: #c05be1;
+  border-left-color: #e6d0fd;
+}
+.candle-purple:hover .candle-section-2, .candle-purple:focus .candle-section-2 {
+  border-top-color: #c05be1;
+  border-right-color: #e6d0fd;
+  border-bottom-color: #e6d0fd;
+  border-left-color: #c05be1;
+}
+
+/* Frosting Flavors */
+.chocolate {
+  background-color: #B98764;
+}
+.chocolate .frosting-part, .chocolate .frosting-part-small {
+  background-color: #553624;
+}
+
+.chocolate:hover, .chocolate:focus {
+  background-color: #cba57d;
+}
+.chocolate:hover .frosting-part, .chocolate:hover .frosting-part-small, .chocolate:focus .frosting-part, .chocolate:focus .frosting-part-small {
+  background-color: #6b432d;
+}
+
+.vanilla {
+  background-color: #f3eee0;
+}
+.vanilla .frosting-part, .vanilla .frosting-part-small {
+  background-color: #b98764;
+}
+
+.vanilla:hover, .vanilla:focus {
+  background-color: #f6f2e8;
+}
+.vanilla:hover .frosting-part, .vanilla:hover .frosting-part-small, .vanilla:focus .frosting-part, .vanilla:focus .frosting-part-small {
+  background-color: #cba57d;
+}
+
+.mint {
+  background-color: #c3fbcc;
+}
+.mint .frosting-part, .mint .frosting-part-small {
+  background-color: #17b733;
+}
+
+.mint:hover, .mint:focus {
+  background-color: #d2fcd9;
+}
+.mint:hover .frosting-part, .mint:hover .frosting-part-small, .mint:focus .frosting-part, .mint:focus .frosting-part-small {
+  background-color: #1dc940;
+}
+
+.strawberry {
+  background-color: #FC9AA7;
+}
+.strawberry .frosting-part, .strawberry .frosting-part-small {
+  background-color: #e61f2b;
+}
+
+.strawberry:hover, .strawberry:focus {
+  background-color: #fdb3bd;
+}
+.strawberry:hover .frosting-part, .strawberry:hover .frosting-part-small, .strawberry:focus .frosting-part, .strawberry:focus .frosting-part-small {
+  background-color: #ec2736;
+}
+
+.lemon {
+  background-color: #FEF37C;
+}
+.lemon .frosting-part, .lemon .frosting-part-small {
+  background-color: #fcb501;
+}
+
+.lemon:hover, .lemon:focus {
+  background-color: #fef69b;
+}
+.lemon:hover .frosting-part, .lemon:hover .frosting-part-small, .lemon:focus .frosting-part, .lemon:focus .frosting-part-small {
+  background-color: #fdc802;
+}
+
+.orange {
+  background-color: #ffc153;
+}
+.orange .frosting-part, .orange .frosting-part-small {
+  background-color: #f6721a;
+}
+
+.orange:hover, .orange:focus {
+  background-color: #ffd168;
+}
+.orange:hover .frosting-part, .orange:hover .frosting-part-small, .orange:focus .frosting-part, .orange:focus .frosting-part-small {
+  background-color: #f88e20;
+}
+
+.coffee {
+  background-color: #E4C494;
+}
+.coffee .frosting-part, .coffee .frosting-part-small {
+  background-color: #92703b;
+}
+
+.coffee:hover, .coffee:focus {
+  background-color: #ebd3af;
+}
+.coffee:hover .frosting-part, .coffee:hover .frosting-part-small, .coffee:focus .frosting-part, .coffee:focus .frosting-part-small {
+  background-color: #ad8c4a;
+}
+
+@media screen and (max-height: 800px) {
+  #container {
+    transform: scale(0.8);
+  }
+}
+@media screen and (max-height: 640px) and (orientation: portrait) {
+  #container {
+    transform: scale(0.6);
+  }
+}
+@media screen and (max-height: 420px) and (orientation: landscape) {
+  #container {
+    top: 100%;
+  }
+}
+@media screen and (max-height: 320px) and (orientation: landscape) {
+  #container {
+    top: 120%;
+  }
+}
+
+/*# sourceMappingURL=indexeat.css.map */

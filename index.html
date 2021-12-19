@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="stylesheets/cake.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/build/stylesheets/index.css">
+</head>
+<style>
+body{
+    margin: 0;
+
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    background-color: rgb(255, 255, 255);
+}
+a{
+    text-decoration: none;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    border: 1px solid #4f4f4f;
+    border-radius: 4px;
+    transition: all 0.2s ease-in;
+    position: relative;
+    overflow: hidden;
+    font-size: 19px;
+    color: black;
+    z-index: 1;
+   }
+   
+   .button:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.25);
+    top: 100%;
+    width: 140%;
+    height: 180%;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+   }
+   
+   .button:after {
+    content: "";
+    position: absolute;
+    left: 55%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.45);
+    top: 180%;
+    width: 160%;
+    height: 190%;
+    background-color: #39bda7;
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+   }
+   
+   .button:hover {
+    color: #ffffff;
+    border: 1px solid #39bda7;
+   }
+   
+   .button:hover:before {
+    top: -35%;
+    background-color: #39bda7;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+   }
+   
+   .button:hover:after {
+    top: -45%;
+    background-color: #39bda7;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+   }
+</style>
+<body>
+	
+	<div class="oven">
+		<div class="back"><button class="button" id="open-button">  
+            <a href="eat.html">click to open</a>
+        </button> </div>
+		<div class="top_holder"><div class="top"></div></div>
+		<div class="front">
+			<div class="knob_row">
+				<div class="three_knob_holder">
+					<span class="circle_knob"><span class="center"></span></span>
+					<span class="circle_knob"><span class="center"></span></span>
+					<span class="circle_knob"><span class="center"></span></span>
+				</div>
+				<div class="timer" id="countdown">00 : 10</div>
+				<div class="three_knob_holder">
+					<span class="circle_knob"><span class="center"></span></span>
+					<span class="circle_knob"><span class="center"></span></span>
+					<span class="circle_knob"><span class="center"></span></span>
+				</div>
+			</div>
+			<div class="door">
+				<div class="knob">
+					<div class="left"></div>
+					<div class="center"></div>
+					<div class="right"></div>
+				</div>
+				<div class="glass">
+					<div class="cake">
+						<div class="steam">
+							<span class="steam_1"></span>
+							<span class="steam_2"></span>
+							<span class="steam_3"></span>
+						</div>
+						<div class="dough">
+						</div>
+						<div class="dish"></div>
+					</div>
+					<div class="tray_holder"><div class="tray"></div></div>
+					
+				</div>
+			</div>
+		</div>
+		<div class="legs_holder"></div>
+	</div>
+<script src="/script/jsfile.js"></script>
+<!-- <script>
+    const mybutton = document.getElementById('open-button');
+    mybutton.style.display = 'none';
+    setTimeout(() => {
+        mybutton.style.display = 'block';
+    }, 9000);
+  </script> -->
+  <script>
+        
+    myFunction();
+    function myFunction() {
+        alert("please wait few seconds..");
+
+    }
+</script>
+</body>
+
+
+</html>

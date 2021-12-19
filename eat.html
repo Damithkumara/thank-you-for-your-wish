@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Thank You</title>
+</head>
+<style>
+    body,
+    html {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    body {
+        background: #3b9596;
+        perspective: 800;
+        perspective-origin: 50% 50%;
+        transform-style: preserve-3d;
+        overflow: hidden;
+    }
+
+    .hb {
+        position: absolute;
+        width: 100%;
+        height: 40%;
+        text-align: center;
+        padding: 30% 0;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 25px;
+        color: #FFF;
+        z-index: 99;
+        height: 30px !important;
+        padding: 10px 0;
+        bottom: 100px;
+    }
+
+    .hb a {
+        display: inline-block;
+        background: #000;
+        padding: 5px 10px;
+        margin: 3px 0;
+        border-radius: 20px;
+        color: #d25177;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .hb a:hover {
+        text-decoration: underline;
+    }
+
+    .cake {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 100px;
+        height: 100px;
+        margin: -50px;
+        transform-style: preserve-3d;
+        animation: spin 10s infinite linear;
+    }
+
+    .cake span {
+        position: absolute;
+        display: block;
+        width: 100px;
+        height: 200px;
+        overflow: hidden;
+        transform-style: preserve-3d;
+    }
+
+    .cake span:after {
+        display: block;
+        content: '';
+        background: #FFF;
+        border-radius: 100px;
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        transform: rotateZ(90deg);
+        clip: rect(0px, 100px, 200px, 0px);
+        box-shadow: inset 0 0 0px 5px #FFF;
+    }
+
+    .e1 {
+        transform: translateZ(0px);
+    }
+
+    .e2 {
+        transform: translateZ(5px);
+    }
+
+    .e3 {
+        transform: translateZ(10px);
+    }
+
+    .e4 {
+        transform: translateZ(15px);
+    }
+
+    .e5 {
+        transform: translateZ(20px);
+    }
+
+    .e6 {
+        transform: translateZ(25px);
+    }
+
+    .e7 {
+        transform: translateZ(30px);
+    }
+
+    .e8 {
+        transform: translateZ(35px);
+    }
+
+    .e9 {
+        transform: translateZ(40px);
+    }
+
+    .e10 {
+        transform: translateZ(45px);
+    }
+
+    .e11 {
+        transform: translateZ(50px);
+    }
+
+    .e1:after,
+    .e2:after {
+        background: #562e49 !important;
+    }
+
+    .e3:after,
+    .e4:after {
+        background: #3b9596 !important;
+    }
+
+    .e5:after,
+    .e6:after {
+        background: #85b36b !important;
+    }
+
+    .e7:after,
+    .e8:after {
+        background: #d25177 !important;
+    }
+
+    .e9:after,
+    .e10:after {
+        background: #a28887 !important;
+    }
+
+    @keyframes spin {
+        from {
+            transform: rotateX(45deg) rotateZ(0);
+        }
+
+        to {
+            transform: rotateX(45deg) rotateZ(360deg);
+        }
+    }
+</style>
+
+<body>
+    <div class="hb" id="demo">
+    </div>
+    <div class="cake">
+        <span class="e1"></span>
+        <span class="e2"></span>
+        <span class="e3"></span>
+        <span class="e4"></span>
+        <span class="e5"></span>
+        <span class="e6"></span>
+        <span class="e7"></span>
+        <span class="e8"></span>
+        <span class="e9"></span>
+        <span class="e10"></span>
+        <span class="e11"></span>
+    </div>
+    <script>
+        
+        myFunction();
+        function myFunction() {
+            let person = prompt("Please enter your name", "");
+            if (person != null) {
+                document.getElementById("demo").innerHTML =
+                    "Hello " + person + "! Thank You so much for you wish! <br> "+ person +", This is for you :-)";
+            }
+        }
+    </script>
+</body>
+
+</html>
